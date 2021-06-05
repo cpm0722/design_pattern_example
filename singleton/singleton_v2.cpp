@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+
+#define USER_NUM 5
+
+using namespace std;
+
+class Printer {
+  public:
+    static void print(string str) {
+      cout << str << endl;
+    }
+};
+
+class User {
+  private:
+    string name;
+  public:
+    User(string name) {
+      this->name = name;
+    }
+    void print(void) {
+      Printer::print(this->name);
+    }
+};
+
+int main(void) {
+  User users[USER_NUM] = { User("User1"), User("User2"), User("User3"), User("User4"), User("User5") };
+  for (int i = 0; i < USER_NUM; i++)
+    users[i].print();
+  return 0;
+}
